@@ -1,0 +1,13 @@
+/* Reference for commands and syntax for snippets 
+* 
+*  https://code.visualstudio.com/docs/editor/userdefinedsnippets
+*/
+{
+    "Insert a test snippet": {
+        "prefix": "copyright",
+        "body": [
+            "This snippet created on $CURRENT_MONTH/$CURRENT_DATE/$CURRENT_YEAR ",
+        ],
+        "description": "Prints the current date"
+    }
+}

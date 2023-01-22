@@ -1,0 +1,50 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+version: '3.4'
+
+volumes:
+  prometheus_data: {}
+  grafana-data: {}
+
+services:
+  todoapi:
+    image: todoapi
+    build:
+      context: .
+      dockerfile: TodoApi/Dockerfile
+    ports:
+      - 5219:5219
+      - 1234:1234
+  db:
+    image: mysql
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    restart: unless-stopped
+    volumes:
+  #    - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+    ports:
+      - 9090:9090
+
+  grafana:
+      image: grafana/grafana:7.5.7
+      ports:
+        - 3000:3000
+      restart: unless-stopped
+      volumes:
+#        - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+        - grafana-data:/var/lib/grafana
+      
