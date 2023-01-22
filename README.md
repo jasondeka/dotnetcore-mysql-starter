@@ -16,6 +16,10 @@ This template includes a preconfigured devcontainer with C# plugins and sdks as 
 
 [Prometheus setup for docker-compose](https://github.com/vegasbrianc/prometheus)
 
+[Setup tips for localhost Docker config](https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach)
+
 ## Running this project
 
-This snippet created on 01/21/2023 
+> Tips
+
+Running locally and connecting with SQLBrowsing should use the hostname of the local docker (host.docker.internal) rather than localhost
