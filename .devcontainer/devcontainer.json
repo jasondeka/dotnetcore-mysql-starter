@@ -34,7 +34,9 @@
 				"pomdtr.excalidraw-editor",
 				"ms-azuretools.vscode-docker",
 				"mtxr.sqltools",
-				"mtxr.sqltools-driver-mysql"
+				"mtxr.sqltools-driver-mysql",
+				"ms-kubernetes-tools.vscode-kubernetes-tools",
+				"ms-azuretools.vscode-docker"
 			]
 		}
 	}
