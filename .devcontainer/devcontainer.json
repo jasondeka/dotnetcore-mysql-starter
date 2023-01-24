@@ -9,10 +9,10 @@
 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
 		"ghcr.io/rio/features/k3d:1": {}
 	},
-	"mounts": [
-	//	"source=${localWorkspaceFolder}/grafana,target=/grafana,type=bind,consistency=cached",
-		"source=${localWorkspaceFolder}/prometheus,target=/prometheus,type=bind,consistency=cached"
-	],
+	// "mounts": [
+	// //	"source=${localWorkspaceFolder}/grafana,target=/grafana,type=bind,consistency=cached",
+	// 	"source=${localWorkspaceFolder}/prometheus,target=/prometheus,type=bind,consistency=cached"
+	// ],
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
